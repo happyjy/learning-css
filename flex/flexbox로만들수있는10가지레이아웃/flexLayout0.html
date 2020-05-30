@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .flex_container {
+    /* flex_item 가운데 정렬*/
+    display: flex;
+    border: 1px black solid;
+  }
+
+  .flex_container>div {
+    border: 2px yellowgreen solid;
+    text-align: center;
+  }
+
+  .flex_item {
+    /* item 숫자들 수평,수직 가운데 정렬*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    /* border: 3px solid green; */
+  }
+</style>
+
+<body>
+  <div class="flex_container">
+    <div class="flex_item">
+      <p>111</p>
+    </div>
+    <div class="flex_item">
+      <p>222</p>
+    </div>
+    <div class="flex_item">
+      <p>333</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

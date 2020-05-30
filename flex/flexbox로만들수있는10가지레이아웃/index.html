@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexbox로만들수있는10가지레이아웃</title>
+</head>
+<style>
+  div {
+    margin-bottom: 10px;
+  }
+
+
+  #root {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    padding: 0px
+  }
+
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<body>
+  <div id="root">
+    <div>INDEX</div>
+    <ul id="list"></ul>
+
+    <iframe id="iframe" src='./flexLayout0.html' style="height:700px; width: 1000px;"></iframe>
+  </div>
+  <script>
+    //  flexLayout
+    // document.body.innerHTML += '<div style="position:absolute;width:100%;height:100%;opacity:0.3;z-index:100;background:#000;">ㅁㄴㅇㄹㅁㄴㅇㄹ</div>';
+    // document.body.innerHTML = '<div>INDEX</div>';
+    // document.getElementById("root").append(`<div>INDEX</div>`);
+
+    // var l = document.createElement('link');
+    // l.rel = 'import';
+    // l.href = 'elements.html';
+    // l.setAttribute('async', '');
+    // l.onload = function(e) { ... };
+
+    let listDataArr = [];
+    for (var i = 0; i < 11; i++) {
+      listDataArr.push("flexLayout" + i);
+    }
+
+    const listDom = document.getElementById("list");
+    listDataArr.forEach(v => {
+      const liDom = document.createElement("li");
+      const aDom = document.createElement("a");
+      // aDom.setAttribute("href", `./${v}.html`);
+      aDom.setAttribute("data-html", v);
+      aDom.innerText = v;
+
+      liDom.append(aDom);
+      listDom.append(liDom);
+    })
+
+    // const iframe = document.getElementsByName("iframe");
+    const iframe = document.getElementById("iframe");
+    debugger;
+
+    listDom.onclick = (e) => {
+      debugger;
+      // iframe.setAttribute("src", `./${e.target.innerHTML}.html`);
+      e.target.dataset.html && iframe.setAttribute("src", `./${e.target.dataset.html}.html`);
+    }
+  </script>
+
+</body>
+
+</html>

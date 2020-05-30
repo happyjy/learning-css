@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    h1.hidden {
+      display: none;
+      /* 영역에도 잡히지 않음 */
+    }
+
+    h1.hiddenByVisibility {
+      visibility: hidden;
+      /* 영역에 잡히고 해당 태그는 봐면에 보이지 않음. */
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>This is a visible heading</h1>
+  <h1 class="hidden">This is a hidden heading</h1>
+  <h1 class="hiddenByVisibility">This is a hidden heading</h1>
+  <p>Notice that the h1 element with display: none; does not take up any space.</p>
+
+</body>
+
+</html>

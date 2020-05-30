@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* 
+        레이아웃 8 - 말줄임과 아이콘
+        * 말줄임과 아이콘 레이아웃은 flex container인 부모 요소의 크기가 작아 flex item인 자식 요소의 텍스트를 
+        모두 표시할 수 없을 때 줄임표(…)가 나타나게 하는 레이아웃이다. 
+        이때 텍스트 영역 옆에 있는 아이콘의 크기는 고정되어 있다.
+        * 조건에 맞는 총 10000000개의 매물이 있습니다. 이게 가로 길이 줄이면 ...으로 줄어든다.
+    */
+    .list_fixed {
+        height: 60px;
+        padding: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .title_wrap {
+        /* 현재 조건에서는 inline-flex, flex 차이 없음*/
+        display: inline-flex;
+        /* display: flex; */
+        max-width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+
+    .title_wrap .title {
+        /* POINT */
+        overflow: hidden;
+        /* 
+            # POINT 
+            * display: inline-flex 속성으로 부모 요소를 인라인 블록 요소로 만들기
+                - display: inline-flex 속성은 flex container를 인라인 블록 요소로 만드는 속성이다. 
+                - display: flex 속성을 적용한 flex container는 블록 요소다. 
+                블록 요소는 브라우저 화면이 한 줄 전체를 차지하지만, 
+                인라인 블록 요소는 한 줄의 일부 영역만 차지한다.
+        */
+        text-overflow: ellipsis;
+        padding-top: 3px;
+        white-space: nowrap;
+        font-size: 18px;
+    }
+
+    .school_type {
+        margin-left: 4px;
+    }
+
+    .school_type[aria-label='가정'] .sp_icon {
+        background-position: -253px -62px;
+        width: 26px;
+        height: 16px;
+    }
+
+    .sp_icon {
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.png);
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.svg), none;
+        background-size: 283px 249px;
+    }
+
+    .school_type[aria-label='통학차량'] .sp_icon {
+        background-position: -132px -34px;
+        width: 44px;
+        height: 16px;
+    }
+
+    .sp_icon {
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.png);
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.svg), none;
+        background-size: 283px 249px;
+    }
+
+    .school_type[aria-label='공립'] .sp_icon {
+        background-position: -148px -206px;
+        width: 26px;
+        height: 16px;
+    }
+
+    .sp_icon {
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.png);
+        background-image: url(https://test-img.land.naver.com/static/beta-service/ver/feature-828/pc/img/sprites/sp_map.svg), none;
+        background-size: 283px 249px;
+    }
+</style>
+
+<body>
+    <div class="list_fixed">
+        <div class="title_wrap">
+            <h3 class="title">조건에 맞는 총 10000000개의 매물이 있습니다.</h3>
+            <span class="school_type" role="img" aria-label="가정">
+                <i class="sp_icon"></i>
+            </span>
+            <span class="school_type" role="img" aria-label="통학차량">
+                <i class="sp_icon"></i>
+            </span>
+            <span class="school_type" role="img" aria-label="공립">
+                <i class="sp_icon"></i>
+            </span>
+        </div>
+
+    </div>
+</body>
+
+</html>

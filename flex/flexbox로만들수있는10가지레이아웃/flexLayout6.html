@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        padding: 30px;
+    }
+
+    /*
+        # 중앙정렬하는 방법 2가지 
+        1. display:flex 저용하는 곳에서 
+            ```
+            display: flex;        
+            align-items: center;
+            justify-content: center; 
+
+            ```
+        2. display: flex 가 적용되는 el에서 
+            ```
+            margin: auto;
+            ```
+        
+    */
+
+    .wrap {
+        border: 1px black solid;
+        display: flex;
+        /* flex-direction: column; */
+        /*
+        display: flex;        
+        align-items: center;
+        justify-content: center; 
+        */
+
+        height: 100%;
+        width: 100%;
+    }
+
+    .targetCenter {
+        /*
+            margin: auto - 정중앙으로 이동
+        */
+        margin: auto;
+        font-size: 50px;
+    }
+</style>
+
+<body>
+    <div class="wrap">
+        <i class="targetCenter">11</i>
+    </div>
+
+</body>
+
+</html>

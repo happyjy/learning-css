@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /* 
+        # 레이아웃 9 - 위아래로 흐르는 목록
+            * 위아래로 흐르는 목록은 자식 요소를 위아래로 먼저 정렬하고 
+            자식 요소가 부모 요소를 벗어나면 줄을 바꿔 다시 위아래로 정렬하는 레이아웃이다.
+            * 다음은 위아래로 흐르는 목록의 기본 정렬 방식을 나타낸 그림이다.
+
+        # 참고 
+            * photo_list 세로 길이가 길어지면 photo_list들이 수직으로 떨어진다.
+
+        # el 구조
+            ui_box
+                ㄴphoto_container
+                    ㄴphoto_list
+                        ㄴphoto_box
+                            ㄴphoto
+                            ㄴdescription
+                        ㄴphoto_box
+                            ㄴphoto
+                            ㄴdescription
+                        ㄴphoto_box
+                            ㄴphoto
+                            ㄴdescription
+                        ㄴphoto_box
+                            ㄴphoto
+                            ㄴdescription
+    */
+    body {
+        background: #eee;
+    }
+
+    h3 {
+        font-size: 20px;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+
+    ul {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .photo_container {
+        border: 1px red solid;
+        width: 501px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    /* 
+        # align-content, justify-content 속성 설명
+            * stretch(기본값): flex item의 높이를 늘려 flex container의 전체 높이를 채운다.
+            * flex-start: 교차축의 시작 부분을 기준으로 정렬한다.
+            * center: 교차축의 중앙을 기준으로 정렬한다.
+            * flex-end: 교차축의 끝부분을 기준으로 정렬한다.
+            * space-around: 교차축을 기준으로 flex-item을 일정한 간격으로 정렬한다.
+            * space-between: 첫 번째와 마지막 flex item은 교차축의 시작 부분과 끝부분에 정렬하고 나머지 flex item을 일정한 간격으로 정렬한다.
+        # 참고 
+            * https://d2.naver.com/helloworld/8540176#ch5 -> layout9번 참고 하기 
+    */
+    .photo_list {
+        display: flex;
+        /* width: 450px; */
+        width: 99%;
+        height: 400px;
+        border: 3px solid #000;
+        /* 가로 정렬 */
+        align-content: space-around;
+        /* 세로정렬 */
+        justify-content: space-around;
+    }
+
+    .photo_list.column {
+        /*  
+            # column: 세로로 div 박스가 이어진다.  
+            # wrap으로 했을때 
+                .photo_box div 길이를 유지한채 photo_list 크기에 따라 아래로 떨어지낟. 
+            1 3
+            2 4
+        */
+        flex-flow: column wrap;
+
+        /*  
+            # row: 가로로 div 박스가 이어진다.  
+            1 2
+            3 4
+        */
+        /* flex-flow: row wrap */
+        /* flex-flow: wrap */
+    }
+
+    .photo_box {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        height: 180px;
+        background: #fff;
+    }
+
+    .photo {
+        /* flex: 3; */
+        width: 100%;
+        height: 120px;
+        background-color: gray;
+    }
+
+    .description {
+        /* flex: 1; */
+        /* flex: auto; */
+        /* 가운데 정렬 */
+        margin: 0 auto;
+        /* height: 100%; 하면 photo 세로길이가 120px 보다 줄어든다. */
+        /* height: 100%; */
+    }
+</style>
+
+<body>
+    <div class="ui_box">
+        <h3>상하 정렬 롤링 리스트</h3>
+        <div class="photo_container">
+            <ul class="photo_list column">
+                <li class="photo_box">
+                    <div class="photo"></div>
+                    <div class="description">
+                        <p>Title1</p>
+                    </div>
+                </li>
+                <li class="photo_box">
+                    <div class="photo"></div>
+                    <div class="description">
+                        <p>Title2</p>
+                    </div>
+                </li>
+                <li class="photo_box">
+                    <div class="photo"></div>
+                    <div class="description">
+                        <p>Title3</p>
+                    </div>
+                </li>
+                <li class="photo_box">
+                    <div class="photo"></div>
+                    <div class="description">
+                        <p>Title4</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
